@@ -35,3 +35,18 @@ services:
         public: false
         tags:
             - { name: 'serializer.normalizer', priority: -980 }
+
+    # App services
+    app.mes_elus_importer:
+        class: App\Service\Utils\EntitiesImporter
+        arguments:
+            $em: '@doctrine.orm.default_entity_manager'
+    app.raw_api_importer:
+        class: App\Service\Utils\EntitiesImporter
+        arguments:
+            $em: '@doctrine.orm.raw_api_entity_manager'
+
+    App\Command\ImportDataCommand:
+        arguments:
+            $mesElusImporter: '@app.mes_elus_importer'
+            $rawApiImporter: '@app.raw_api_importer'

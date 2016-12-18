@@ -95,27 +95,16 @@ class Actor
      */
     private $job;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getUid(): string
     {
         return $this->uid;
     }
 
-    /**
-     * @param string $uid
-     *
-     * @return Actor
-     */
     public function setUid(string $uid): Actor
     {
         $this->uid = $uid;
@@ -125,19 +114,12 @@ class Actor
 
     /**
      * Get civility.
-     *
-     * @return Civility
      */
     public function getCivility(): Civility
     {
         return $this->civility;
     }
 
-    /**
-     * @param Civility $civility
-     *
-     * @return Actor
-     */
     public function setCivility(Civility $civility): Actor
     {
         $this->civility = $civility;
@@ -145,19 +127,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
-    /**
-     * @param string|null $lastname
-     *
-     * @return Actor
-     */
     public function setLastname(?string $lastname): Actor
     {
         $this->lastname = $lastname;
@@ -165,19 +139,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
-    /**
-     * @param string|null $firstname
-     *
-     * @return Actor
-     */
     public function setFirstname(?string $firstname): Actor
     {
         $this->firstname = $firstname;
@@ -185,19 +151,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAlpha(): ?string
     {
         return $this->alpha;
     }
 
-    /**
-     * @param string|null $alpha
-     *
-     * @return Actor
-     */
     public function setAlpha(?string $alpha): Actor
     {
         $this->alpha = $alpha;
@@ -205,19 +163,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
 
-    /**
-     * @param \DateTime|null $birthday
-     *
-     * @return Actor
-     */
     public function setBirthday(?\DateTime $birthday): Actor
     {
         $this->birthday = $birthday;
@@ -225,19 +175,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getDayOfDeath(): ?\DateTime
     {
         return $this->dayOfDeath;
     }
 
-    /**
-     * @param \DateTime|null $dayOfDeath
-     *
-     * @return Actor
-     */
     public function setDayOfDeath(?\DateTime $dayOfDeath): Actor
     {
         $this->dayOfDeath = $dayOfDeath;
@@ -245,19 +187,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return City
-     */
     public function getBirthCity(): City
     {
         return $this->birthCity;
     }
 
-    /**
-     * @param City $birthCity
-     *
-     * @return Actor
-     */
     public function setBirthCity(City $birthCity): Actor
     {
         $this->birthCity = $birthCity;
@@ -265,19 +199,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return Country
-     */
     public function getBirthCountry(): Country
     {
         return $this->birthCountry;
     }
 
-    /**
-     * @param Country $birthCountry
-     *
-     * @return Actor
-     */
     public function setBirthCountry(Country $birthCountry): Actor
     {
         $this->birthCountry = $birthCountry;
@@ -285,19 +211,11 @@ class Actor
         return $this;
     }
 
-    /**
-     * @return Job
-     */
     public function getJob(): Job
     {
         return $this->job;
     }
 
-    /**
-     * @param Job $job
-     *
-     * @return Actor
-     */
     public function setJob(Job $job): Actor
     {
         $this->job = $job;

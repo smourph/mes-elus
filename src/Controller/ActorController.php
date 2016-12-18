@@ -2,30 +2,30 @@
 
 namespace App\Controller;
 
-use App\Entity\Datagouv\Acteur\Acteur;
+use App\Entity\Meselus\Actor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * Class ActeurController.
+ * Class ActorController.
  *
- * @Route("/acteur", name="acteur_")
+ * @Route("/actor", name="actor_")
  */
-class ActeurController extends AbstractController
+class ActorController extends AbstractController
 {
     /**
      * @Route("s/", name="list")
      */
     public function listAction(SerializerInterface $serializer): JsonResponse
     {
-        $acteurRepository = $this->getDoctrine()->getRepository(Acteur::class, 'raw_api');
+        $actorRepository = $this->getDoctrine()->getRepository(Actor::class);
 
-        $acteurs = $acteurRepository->findAll();
+        $actors = $actorRepository->findAll();
 
         return new JsonResponse(
-            $serializer->serialize($acteurs, 'json'),
+            $serializer->serialize($actors, 'json'),
             JsonResponse::HTTP_OK,
             [],
             true
@@ -33,12 +33,12 @@ class ActeurController extends AbstractController
     }
 
     /**
-     * @Route("/{uid}", name="show")
+     * @Route("/{id}", name="show")
      */
-    public function showAction(Acteur $acteur, SerializerInterface $serializer): JsonResponse
+    public function showAction(Actor $actor, SerializerInterface $serializer): JsonResponse
     {
         return new JsonResponse(
-            $serializer->serialize($acteur, 'json'),
+            $serializer->serialize($actor, 'json'),
             JsonResponse::HTTP_OK,
             [],
             true

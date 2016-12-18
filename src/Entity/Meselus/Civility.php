@@ -21,9 +21,6 @@ class Civility extends LabelizedData
      */
     private $id;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;

@@ -45,27 +45,16 @@ class Job
      */
     private $family;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return JobLabel
-     */
     public function getLabel(): JobLabel
     {
         return $this->label;
     }
 
-    /**
-     * @param JobLabel $label
-     *
-     * @return Job
-     */
     public function setLabel(JobLabel $label): Job
     {
         $this->label = $label;
@@ -73,19 +62,11 @@ class Job
         return $this;
     }
 
-    /**
-     * @return JobCategory
-     */
     public function getCategory(): JobCategory
     {
         return $this->category;
     }
 
-    /**
-     * @param JobCategory $category
-     *
-     * @return Job
-     */
     public function setCategory(JobCategory $category): Job
     {
         $this->category = $category;
@@ -93,19 +74,11 @@ class Job
         return $this;
     }
 
-    /**
-     * @return JobFamily
-     */
     public function getFamily(): JobFamily
     {
         return $this->family;
     }
 
-    /**
-     * @param JobFamily $family
-     *
-     * @return Job
-     */
     public function setFamily(JobFamily $family): Job
     {
         $this->family = $family;

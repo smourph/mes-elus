@@ -18,19 +18,11 @@ abstract class LabelizedData
      */
     private $label;
 
-    /**
-     * @return string|null
-     */
     public function getLabel(): ?string
     {
         return $this->label;
     }
 
-    /**
-     * @param string|null $label
-     *
-     * @return LabelizedData
-     */
     public function setLabel(?string $label): LabelizedData
     {
         $this->label = $label;
