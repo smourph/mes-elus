@@ -234,3 +234,10 @@ $RECYCLE.BIN/
 
 # Fix IntelliJ versioned folder
 .idea/
+
+# API - Scripts #
+!bin/import_api_data.sh
+
+# API - Data file #
+var/ApiData/*
+!var/ApiData/.gitkeep
