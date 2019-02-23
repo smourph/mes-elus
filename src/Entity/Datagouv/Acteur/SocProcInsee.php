@@ -63,4 +63,12 @@ class SocProcInsee
 
         return $this;
     }
+
+    public function update(SocProcInsee $new): SocProcInsee
+    {
+        $this->setCatSocPro($new->getCatSocPro())
+            ->setFamSocPro($new->getFamSocPro());
+
+        return $this;
+    }
 }

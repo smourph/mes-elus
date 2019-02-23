@@ -101,4 +101,14 @@ class Ident
 
         return $this;
     }
+
+    public function update(Ident $new): Ident
+    {
+        $this->setAlpha($new->getAlpha())
+            ->setNom($new->getNom())
+            ->setPrenom($new->getPrenom())
+            ->setCiv($new->getCiv());
+
+        return $this;
+    }
 }

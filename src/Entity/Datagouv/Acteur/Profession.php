@@ -64,4 +64,12 @@ class Profession
 
         return $this;
     }
+
+    public function update(Profession $new): Profession
+    {
+        $this->setSocProcINSEE($this->getSocProcINSEE()->update($new->getSocProcINSEE()))
+            ->setLibelleCourant($new->getLibelleCourant());
+
+        return $this;
+    }
 }

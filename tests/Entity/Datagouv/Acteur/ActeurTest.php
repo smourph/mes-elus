@@ -18,6 +18,7 @@ class ActeurTest extends TestCase
         $acteur = new Acteur();
 
         $acteur->setUid('uid1');
+        $this->assertEquals('uid1', $acteur->getId());
         $this->assertEquals('uid1', $acteur->getUid());
 
         $acteur->setEtatCivil(new EtatCivil());

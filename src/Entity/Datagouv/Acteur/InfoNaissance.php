@@ -102,4 +102,14 @@ class InfoNaissance
 
         return $this;
     }
+
+    public function update(InfoNaissance $new): InfoNaissance
+    {
+        $this->setPaysNais($new->getPaysNais())
+            ->setDepNais($new->getDepNais())
+            ->setVilleNais($new->getVilleNais())
+            ->setDateNais($new->getDateNais());
+
+        return $this;
+    }
 }

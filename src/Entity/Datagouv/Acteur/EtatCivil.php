@@ -85,4 +85,13 @@ class EtatCivil
 
         return $this;
     }
+
+    public function update(EtatCivil $new): EtatCivil
+    {
+        $this->setInfoNaissance($this->getInfoNaissance()->update($new->getInfoNaissance()))
+            ->setIdent($this->getIdent()->update($new->getIdent()))
+            ->setDateDeces($new->getDateDeces());
+
+        return $this;
+    }
 }

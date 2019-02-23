@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+    # API - Data file configurations
+    data_file.deputes_actifs: '%kernel.project_dir%/var/ApiData/deputes_actifs/json/acteur'
+
 services:
     # default configuration for services in *this* file
     _defaults:
