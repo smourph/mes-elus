@@ -17,6 +17,12 @@ PHPUnit
 docker-compose exec php bin/phpunit
 ```
 
+Behat
+
+```bash
+docker-compose exec php env APP_ENV=test vendor/bin/behat
+```
+
 PHP-CS-Fixer
 
 ```bash

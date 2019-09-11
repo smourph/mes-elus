@@ -1,0 +1,194 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "$id": "#/items",
+        "type": "object",
+        "required": [
+            "uid",
+            "etatCivil",
+            "profession"
+        ],
+        "properties": {
+            "uid": {
+                "$id": "#/items/properties/uid",
+                "type": "string",
+                "pattern": "^(.*)$"
+            },
+            "etatCivil": {
+                "$id": "#/items/properties/etatCivil",
+                "type": "object",
+                "required": [
+                    "id",
+                    "ident",
+                    "infoNaissance",
+                    "dateDeces"
+                ],
+                "properties": {
+                    "id": {
+                        "$id": "#/items/properties/etatCivil/properties/id",
+                        "type": "integer"
+                    },
+                    "ident": {
+                        "$id": "#/items/properties/etatCivil/properties/ident",
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "civ",
+                            "prenom",
+                            "nom",
+                            "alpha"
+                        ],
+                        "properties": {
+                            "id": {
+                                "$id": "#/items/properties/etatCivil/properties/ident/properties/id",
+                                "type": "integer"
+                            },
+                            "civ": {
+                                "$id": "#/items/properties/etatCivil/properties/ident/properties/civ",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "prenom": {
+                                "$id": "#/items/properties/etatCivil/properties/ident/properties/prenom",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "nom": {
+                                "$id": "#/items/properties/etatCivil/properties/ident/properties/nom",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "alpha": {
+                                "$id": "#/items/properties/etatCivil/properties/ident/properties/alpha",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            }
+                        }
+                    },
+                    "infoNaissance": {
+                        "$id": "#/items/properties/etatCivil/properties/infoNaissance",
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "dateNais",
+                            "villeNais",
+                            "depNais",
+                            "paysNais"
+                        ],
+                        "properties": {
+                            "id": {
+                                "$id": "#/items/properties/etatCivil/properties/infoNaissance/properties/id",
+                                "type": "integer"
+                            },
+                            "dateNais": {
+                                "$id": "#/items/properties/etatCivil/properties/infoNaissance/properties/dateNais",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "villeNais": {
+                                "$id": "#/items/properties/etatCivil/properties/infoNaissance/properties/villeNais",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "depNais": {
+                                "$id": "#/items/properties/etatCivil/properties/infoNaissance/properties/depNais",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "paysNais": {
+                                "$id": "#/items/properties/etatCivil/properties/infoNaissance/properties/paysNais",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            }
+                        }
+                    },
+                    "dateDeces": {
+                        "$id": "#/items/properties/etatCivil/properties/dateDeces",
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "pattern": "^(.*)$"
+                    }
+                }
+            },
+            "profession": {
+                "$id": "#/items/properties/profession",
+                "type": "object",
+                "required": [
+                    "id",
+                    "libelleCourant",
+                    "socProcINSEE"
+                ],
+                "properties": {
+                    "id": {
+                        "$id": "#/items/properties/profession/properties/id",
+                        "type": "integer"
+                    },
+                    "libelleCourant": {
+                        "$id": "#/items/properties/profession/properties/libelleCourant",
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "socProcINSEE": {
+                        "$id": "#/items/properties/profession/properties/socProcINSEE",
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "catSocPro",
+                            "famSocPro"
+                        ],
+                        "properties": {
+                            "id": {
+                                "$id": "#/items/properties/profession/properties/socProcINSEE/properties/id",
+                                "type": "integer"
+                            },
+                            "catSocPro": {
+                                "$id": "#/items/properties/profession/properties/socProcINSEE/properties/catSocPro",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "famSocPro": {
+                                "$id": "#/items/properties/profession/properties/socProcINSEE/properties/famSocPro",
+                                "type": "string",
+                                "pattern": "^(.*)$"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

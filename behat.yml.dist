@@ -1,0 +1,22 @@
+default:
+    suites:
+        default:
+            contexts:
+                - FixtureContext:
+                    doctrine: '@doctrine'
+                    loader: '@fidry_alice_data_fixtures.doctrine.persister_loader'
+                    fixturesBasePath: '%paths.base%/tests/Fixtures/'
+                - Behat\MinkExtension\Context\MinkContext
+                - behatch:context:json
+                - behatch:context:rest
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url: "http://api.mes-elus.local/:8080"
+            sessions:
+                default:
+                    symfony2: ~
+        Behatch\Extension: ~
