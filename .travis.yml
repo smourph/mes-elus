@@ -53,11 +53,11 @@ install:
     # install or update
     - composer $ACTION
     - ./bin/phpunit install
-    - php bin/console doctrine:database:create --env=test
-    - php bin/console doctrine:schema:create --env=test
+    - php bin/console doctrine:database:create --env=travis
+    - php bin/console doctrine:schema:create --env=travis
 
 script:
-    - ./bin/phpunit
+    - ./bin/phpunit -c phpunit.xml.travis
     # this checks that the source code follows the Symfony Code Syntax rules
     - '[[ "$TRAVIS_PHP_VERSION" == "7.4snapshot" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
     # this checks that the YAML config files contain no syntax errors
@@ -69,7 +69,7 @@ script:
     # this checks that the application doesn't use dependencies with known security vulnerabilities
     - ./bin/console security:check
     # this checks that Doctrine's mapping configurations are valid
-    - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
+    - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction --env=travis
     #  Fail CI if the repo is in a dirty state after building assets (only for current release ie install)
     #-  if [[ "$ACTION" == "install" ]]; then yarn install && yarn encore production && git add --all && git diff --staged --exit-code; fi
 
