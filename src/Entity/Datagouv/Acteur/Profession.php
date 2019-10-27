@@ -2,6 +2,7 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
+use App\Entity\AbstractApiEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur_profession")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\ProfessionRepository")
  */
-class Profession
+class Profession implements AbstractApiEntity
 {
     /**
      * @var int
@@ -61,6 +62,14 @@ class Profession
     public function setSocProcINSEE(SocProcInsee $socProcINSEE): Profession
     {
         $this->socProcINSEE = $socProcINSEE;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): Profession
+    {
+        $this->setSocProcINSEE($this->getSocProcINSEE()->update($new->getSocProcINSEE()))
+            ->setLibelleCourant($new->getLibelleCourant());
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
+use App\Entity\AbstractApiEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur_profession_socprocinsee")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\SocProcInseeRepository")
  */
-class SocProcInsee
+class SocProcInsee implements AbstractApiEntity
 {
     /**
      * @var int
@@ -60,6 +61,14 @@ class SocProcInsee
     public function setFamSocPro(string $famSocPro): SocProcInsee
     {
         $this->famSocPro = $famSocPro;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): SocProcInsee
+    {
+        $this->setCatSocPro($new->getCatSocPro())
+            ->setFamSocPro($new->getFamSocPro());
 
         return $this;
     }

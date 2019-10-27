@@ -2,6 +2,7 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
+use App\Entity\AbstractApiEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,13 +11,13 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\ActeurRepository")
  */
-class Acteur
+class Acteur implements AbstractApiEntity
 {
     /**
      * @var string
      *
-     * @ORM\Id
      * @ORM\Column(name="uid", type="string", length=15)
+     * @ORM\Id
      */
     private $uid;
 
@@ -35,6 +36,11 @@ class Acteur
      * @ORM\JoinColumn(name="profession_id", referencedColumnName="id", nullable=false)
      */
     private $profession;
+
+    public function getId(): string
+    {
+        return $this->uid;
+    }
 
     public function getUid(): string
     {
@@ -68,6 +74,14 @@ class Acteur
     public function setProfession(Profession $profession): Acteur
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): Acteur
+    {
+        $this->setEtatCivil($this->getEtatCivil()->update($new->getEtatCivil()))
+            ->setProfession($this->getProfession()->update($new->getProfession()));
 
         return $this;
     }

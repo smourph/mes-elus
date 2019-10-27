@@ -32,4 +32,19 @@ class SocProcInseeTest extends TestCase
         $this->expectException(TypeError::class);
         $socProcINSEE->setFamSocPro(null);
     }
+
+    public function testUpdate(): void
+    {
+        $current = (new SocProcInsee())
+            ->setCatSocPro('cat1')
+            ->setFamSocPro('fam1');
+
+        $new = (new SocProcInsee())
+            ->setCatSocPro('cat2')
+            ->setFamSocPro('fam2');
+
+        $current->update($new);
+
+        $this->assertEquals($new, $current);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
+use App\Entity\AbstractApiEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur_etatcivil_ident")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\IdentRepository")
  */
-class Ident
+class Ident implements AbstractApiEntity
 {
     /**
      * @var int
@@ -98,6 +99,16 @@ class Ident
     public function setAlpha(?string $alpha): Ident
     {
         $this->alpha = $alpha;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): Ident
+    {
+        $this->setAlpha($new->getAlpha())
+            ->setNom($new->getNom())
+            ->setPrenom($new->getPrenom())
+            ->setCiv($new->getCiv());
 
         return $this;
     }

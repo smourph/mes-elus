@@ -2,7 +2,8 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
-use DateTime;
+use App\Entity\AbstractApiEntity;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur_etatcivil_infonaissance")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\InfoNaissanceRepository")
  */
-class InfoNaissance
+class InfoNaissance implements AbstractApiEntity
 {
     /**
      * @var int
@@ -23,7 +24,7 @@ class InfoNaissance
     private $id;
 
     /**
-     * @var DateTime|null
+     * @var DateTimeInterface|null
      *
      * @ORM\Column(name="dateNais", type="date", nullable=true)
      */
@@ -55,12 +56,12 @@ class InfoNaissance
         return $this->id;
     }
 
-    public function getDateNais(): ?DateTime
+    public function getDateNais(): ?DateTimeInterface
     {
         return $this->dateNais;
     }
 
-    public function setDateNais(?DateTime $dateNais): InfoNaissance
+    public function setDateNais(?DateTimeInterface $dateNais): InfoNaissance
     {
         $this->dateNais = $dateNais;
 
@@ -99,6 +100,16 @@ class InfoNaissance
     public function setPaysNais(?string $paysNais): InfoNaissance
     {
         $this->paysNais = $paysNais;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): InfoNaissance
+    {
+        $this->setPaysNais($new->getPaysNais())
+            ->setDepNais($new->getDepNais())
+            ->setVilleNais($new->getVilleNais())
+            ->setDateNais($new->getDateNais());
 
         return $this;
     }

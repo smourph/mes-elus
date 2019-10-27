@@ -2,7 +2,8 @@
 
 namespace App\Entity\Datagouv\Acteur;
 
-use DateTime;
+use App\Entity\AbstractApiEntity;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="acteur_etatcivil")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\EtatCivilRepository")
  */
-class EtatCivil
+class EtatCivil implements AbstractApiEntity
 {
     /**
      * @var int
@@ -39,7 +40,7 @@ class EtatCivil
     private $infoNaissance;
 
     /**
-     * @var DateTime|null
+     * @var DateTimeInterface|null
      *
      * @ORM\Column(name="dateDeces", type="date", nullable=true)
      */
@@ -74,14 +75,23 @@ class EtatCivil
         return $this;
     }
 
-    public function getDateDeces(): ?DateTime
+    public function getDateDeces(): ?DateTimeInterface
     {
         return $this->dateDeces;
     }
 
-    public function setDateDeces(?DateTime $dateDeces): EtatCivil
+    public function setDateDeces(?DateTimeInterface $dateDeces): EtatCivil
     {
         $this->dateDeces = $dateDeces;
+
+        return $this;
+    }
+
+    public function update(AbstractApiEntity $new): EtatCivil
+    {
+        $this->setInfoNaissance($this->getInfoNaissance()->update($new->getInfoNaissance()))
+            ->setIdent($this->getIdent()->update($new->getIdent()))
+            ->setDateDeces($new->getDateDeces());
 
         return $this;
     }
