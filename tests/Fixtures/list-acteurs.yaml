@@ -1,0 +1,40 @@
+App\Entity\Datagouv\Acteur\Ident:
+  ident_{1..4}:
+    civ: '<titleMale()>'
+    prenom: '<firstNameMale()>'
+    nom: '<lastName()>'
+    alpha: '<lastName()>'
+  ident_{5..10}:
+    civ: '<titleFemale()>'
+    prenom: '<firstNameFemale()>'
+    nom: '<lastName()>'
+    alpha: '<lastName()>'
+
+App\Entity\Datagouv\Acteur\InfoNaissance:
+  info_naissance_{1..10}:
+    dateNais: '<dateTime()>'
+    villeNais: '<city()>'
+    depNais: '<state()>'
+    paysNais: '<country()>'
+
+App\Entity\Datagouv\Acteur\EtatCivil:
+  etat_civil_{1..10}:
+    ident: '@ident_<current()>'
+    infoNaissance: '@info_naissance_<current()>'
+    dateDeces: '20%? <dateTime()>'
+
+App\Entity\Datagouv\Acteur\SocProcInsee:
+  soc_proc_insee_{1..4}:
+    catSocPro: '<text(50)>'
+    famSocPro: '<text(20)>'
+
+App\Entity\Datagouv\Acteur\Profession:
+  profession_{1..7}:
+    libelleCourant: '<jobTitle()>'
+    socProcINSEE: '@soc_proc_insee_*'
+
+App\Entity\Datagouv\Acteur\Acteur:
+  acteur_{1..10}:
+    uid: 'PA<current()>'
+    etatCivil: '@etat_civil_<current()>'
+    profession: '@profession_*'

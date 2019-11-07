@@ -185,6 +185,9 @@ Temporary Items
 /.php_cs
 /.php_cs.cache
 
+# behat/symfony2-extension
+behat.yml
+
 # Build data
 /build/
 
@@ -234,3 +237,10 @@ $RECYCLE.BIN/
 
 # Fix IntelliJ versioned folder
 .idea/
+
+# API - Scripts #
+!bin/import_api_data.sh
+
+# API - Data file #
+var/ApiData/*
+!var/ApiData/.gitkeep
