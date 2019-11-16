@@ -4,12 +4,14 @@ namespace App\Entity\Datagouv\Acteur;
 
 use App\Entity\AbstractApiEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Class SocProcInsee.
  *
  * @ORM\Table(name="acteur_profession_socprocinsee")
  * @ORM\Entity(repositoryClass="App\Repository\Datagouv\Acteur\SocProcInseeRepository")
+ * @UniqueEntity("catSocPro")
  */
 class SocProcInsee implements AbstractApiEntity
 {
@@ -25,7 +27,7 @@ class SocProcInsee implements AbstractApiEntity
     /**
      * @var string|null
      *
-     * @ORM\Column(name="catSocPro", type="string", length=255, nullable=true)
+     * @ORM\Column(name="catSocPro", type="string", length=255, nullable=true, unique=true)
      */
     private $catSocPro;
 
